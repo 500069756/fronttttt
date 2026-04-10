@@ -77,6 +77,24 @@ def load_data():
         data_store["data_loaded"] = True
 
 
+@app.get("/")
+def read_root():
+    return {
+        "name": "Restaurant Recommender API",
+        "version": "1.0.0",
+        "endpoints": ["/api/v1/recommend", "/api/v1/health", "/api/v1/cities", "/api/v1/location-hierarchy"]
+    }
+
+
+@app.get("/api/v1/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "data_loaded": data_store["data_loaded"],
+        "restaurants_count": len(data_store["processed_data"]) if data_store["processed_data"] is not None else 0
+    }
+
+
 @app.on_event("startup")
 async def startup_event():
     """Initialize data on startup."""
