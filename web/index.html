@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato AI Recommendations</title>
+    <meta name="description" content="AI powered Zomato restaurant recommendations.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header glass-panel">
+            <h1>Zomato AI Match</h1>
+            <p>Find your next perfect dining experience</p>
+        </header>
+
+        <main class="main-content">
+            <section class="preferences-panel glass-panel">
+                <h2>Your Preferences</h2>
+                <form id="recommendation-form">
+                    <div class="form-group">
+                        <label for="location">Location (City)</label>
+                        <select id="location" name="location" required>
+                            <option value="" disabled selected>Loading locations...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locality">Locality (Sub-area)</label>
+                        <select id="locality" name="locality" required>
+                            <option value="" disabled selected>Select a city first...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget_max_inr">Max Budget for Two (₹)</label>
+                        <input type="number" id="budget_max_inr" name="budget_max_inr" value="1500" min="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuisine">Cuisine Preferences</label>
+                        <input type="text" id="cuisine" name="cuisine" placeholder="e.g. North Indian, Italian" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="min_rating">Minimum Rating</label>
+                        <input type="number" id="min_rating" name="min_rating" value="4.0" step="0.1" min="0" max="5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="extras">Extras / Vibes</label>
+                        <textarea id="extras" name="extras" rows="2" placeholder="e.g. rooftop, romantic, live music"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="submit-btn">Get Recommendations</button>
+                </form>
+            </section>
+
+            <section class="results-panel">
+                <div id="results-loader" class="loader hidden">
+                    <div class="spinner"></div>
+                    <p>Curating top picks...</p>
+                </div>
+                
+                <div id="results-summary" class="results-summary hidden glass-panel"></div>
+
+                <div id="results-grid" class="results-grid">
+                    <!-- Cards injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

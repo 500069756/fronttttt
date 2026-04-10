@@ -1,0 +1,92 @@
+.sidebar {
+  width: 300px;
+  background-color: var(--color-white);
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+  position: sticky;
+  top: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.avatarHex {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-primary-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.profileInfo h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.profileInfo p {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+.navLinkActive {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.navLinkActive:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.bottomAction {
+  background-color: var(--color-primary-light);
+  color: white;
+  padding: 0.85rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
