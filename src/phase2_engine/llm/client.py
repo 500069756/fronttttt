@@ -16,8 +16,8 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent.parent.parent))
 from config.settings import (
-    GROK_API_KEY,
-    GROK_API_BASE,
+    GROQ_API_KEY,
+    GROQ_API_BASE,
     LLM_MODEL,
     LLM_MAX_TOKENS,
     LLM_TEMPERATURE,
@@ -68,8 +68,8 @@ class LLMClient:
             timeout: Request timeout (defaults to config)
             fallback_enabled: Enable fallback responses when LLM fails
         """
-        self.api_key = api_key if api_key is not None else GROK_API_KEY
-        self.api_base = api_base if api_base is not None else GROK_API_BASE
+        self.api_key = api_key if api_key is not None else GROQ_API_KEY
+        self.api_base = api_base if api_base is not None else GROQ_API_BASE
         self.model = model if model is not None else LLM_MODEL
         self.max_tokens = max_tokens if max_tokens is not None else LLM_MAX_TOKENS
         self.temperature = temperature if temperature is not None else LLM_TEMPERATURE

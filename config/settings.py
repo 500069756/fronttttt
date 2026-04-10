@@ -9,9 +9,20 @@ load_dotenv()
 # =============================================================================
 # PATHS
 # =============================================================================
-BASE_DIR = Path(__file__).parent.parent
-DATA_CACHE_DIR = Path(os.getenv("DATA_CACHE_DIR", BASE_DIR / "data_cache"))
-DATA_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_CACHE_DIR_PATH = os.getenv("DATA_CACHE_DIR", "")
+if DATA_CACHE_DIR_PATH:
+    DATA_CACHE_DIR = Path(DATA_CACHE_DIR_PATH)
+else:
+    DATA_CACHE_DIR = BASE_DIR / "data_cache"
+
+# Ensure directory exists but handle potential permission issues gracefully
+try:
+    DATA_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+except Exception:
+    # Fallback to current working directory if root is read-only
+    DATA_CACHE_DIR = Path("data_cache")
+    DATA_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
 # =============================================================================
 # API SETTINGS
@@ -23,8 +34,8 @@ DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 # =============================================================================
 # LLM SETTINGS (Groq API - OpenAI-compatible)
 # =============================================================================
-GROK_API_KEY = os.getenv("GROK_API_KEY", "")
-GROK_API_BASE = os.getenv("GROK_API_BASE", "https://api.groq.com/openai/v1")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_API_BASE = os.getenv("GROQ_API_BASE", "https://api.groq.com/openai/v1")
 LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
 LLM_MAX_TOKENS = 1000
 LLM_TEMPERATURE = 0.7

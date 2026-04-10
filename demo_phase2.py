@@ -128,7 +128,7 @@ def main():
     llm_client = LLMClient(fallback_enabled=True)
     
     if llm_client.is_available():
-        print("✅ LLM client available (using Grok)")
+        print("✅ LLM client available (using Groq)")
     else:
         print("⚠️ LLM client not available (using fallback explanations)")
     
@@ -164,7 +164,7 @@ def main():
     print("  �AI-powered explanations (with fallback)")
     print("  ✅ Restaurant comparison")
     print("\nNext steps:")
-    print("  1. Set GROK_API_KEY in .env for full LLM features")
+    print("  1. Set GROQ_API_KEY in .env for full LLM features")
     print("  2. Run tests: pytest tests/test_phase2.py -v")
     print("  3. Proceed to Phase 3: API & Service Layer")
 
