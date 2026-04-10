@@ -51,7 +51,8 @@ export default function ConciergeForm() {
     async function fetchLocationData() {
       setIsFetchingLocalData(true);
       try {
-        const res = await fetch('http://127.0.0.1:8001/api/v1/location-hierarchy');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001';
+        const res = await fetch(`${apiUrl}/api/v1/location-hierarchy`);
         if (res.ok) {
           const data = await res.json();
           setCities(data.cities || []);
@@ -106,7 +107,8 @@ export default function ConciergeForm() {
         min_rating: parseFloat(rating),
       };
 
-      const res = await fetch('http://127.0.0.1:8001/api/v1/recommend', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001';
+      const res = await fetch(`${apiUrl}/api/v1/recommend`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
