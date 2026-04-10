@@ -7,7 +7,7 @@ from datasets import load_dataset
 
 import sys
 sys.path.append(str(Path(__file__).parent.parent.parent.parent))
-from config.settings import DATASET_NAME, DATA_CACHE_DIR, MAX_RESTAURANTS
+from config import DATASET_NAME, DATA_CACHE_DIR, MAX_RESTAURANTS
 
 logger = logging.getLogger(__name__)
 

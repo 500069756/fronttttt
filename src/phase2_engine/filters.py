@@ -14,7 +14,7 @@ import pandas as pd
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from config.settings import BUDGET_CATEGORIES
+from config import BUDGET_CATEGORIES
 
 logger = logging.getLogger(__name__)
 

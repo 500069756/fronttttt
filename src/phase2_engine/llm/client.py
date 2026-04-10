@@ -15,7 +15,7 @@ import json
 import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent.parent.parent))
-from config.settings import (
+from config import (
     GROQ_API_KEY,
     GROQ_API_BASE,
     LLM_MODEL,

@@ -8,7 +8,7 @@ import numpy as np
 
 import sys
 sys.path.append(str(Path(__file__).parent.parent.parent.parent))
-from config.settings import BUDGET_CATEGORIES, RATING_THRESHOLDS
+from config import BUDGET_CATEGORIES, RATING_THRESHOLDS
 
 logger = logging.getLogger(__name__)
 
